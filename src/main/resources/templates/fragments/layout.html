@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>E-Shop</title>
+    <!-- Odkazy na potřebné styly, ikonky a skripty -->
+    <link rel="stylesheet" th:href="@{/styles/lightbox.min.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/styles/bootstrap.min.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" type="text/css"/>
+
+</head>
+<body>
+<header th:fragment="header">
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Hlavní strana</a></li>
+            <li><a th:href="@{/shop}">O E-shopu</a></li>
+            <li><a th:href="@{/products}">Produkty</a></li>
+        </ul>
+    </nav>
+</header>
+
+<footer th:fragment="footer">
+    <hr>
+    &copy;E-shop 2023
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+<body>
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<article>
+    <header>
+        <h1>Nový Produkt</h1>
+    </header>
+
+    <section>
+        <form class="d-flex flex-column gap-2"
+              method="post"
+              th:action="@{/products/create}"
+              th:object="${productDTO}">
+            <div class="form-group">
+                <label for="title" class="control-label">Název produktu</label>
+                <input id="title" th:field="*{title}" class="form-control"/>
+                <small class="text-danger" th:errors="*{title}"></small>
+            </div>
+            <div class="form-group">
+                <label for="description" class="control-label">Popisek produktu</label>
+                <textarea id="description" class="form-control" th:field="*{description}"></textarea>
+                <small class="text-danger" th:errors="*{description}"></small>
+            </div>
+            <div class="form-group">
+                <label for="content" class="control-label">Cena produktu</label>
+                <textarea id="content" class="form-control" th:field="*{price}"></textarea>
+                <small class="text-danger" th:errors="*{price}"></small>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="clanky-tlacitko">Uložit</button>
+            </div>
+        </form>
+    </section>
+
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>

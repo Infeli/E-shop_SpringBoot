@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/layout.html :: head}"></head>
+<body>
+
+<header th:replace="~{fragments/layout.html :: header}"></header>
+
+<article>
+    <header>
+        <h1>Produkty</h1>
+    </header>
+    <section>
+        <p>
+            <a class="clanky-tlacitko" th:href="@{/products/create}">Vytvořit nový produkt</a>
+        </p>
+
+        <ul class="list-group" id="clanky">
+            <li th:each="product: ${products}" class="list-group-item">
+                <h2><a th:href="@{'/products/' + ${product.productId}}" th:text="${product.title}"></a></h2>
+                <p th:text="${product.description}"></p>
+                <p>
+                    <a th:href="@{'/products/edit/' + ${product.productId}}">Editovat</a> |
+                    <a th:href="@{'/products/delete/' + ${product.productId}}">Odstranit</a>
+                </p>
+            </li>
+        </ul>
+    </section>
+</article>
+
+<footer th:replace="~{fragments/layout.html :: footer}"></footer>
+</body>
+</html>
